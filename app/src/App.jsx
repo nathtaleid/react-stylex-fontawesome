@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as stylex from "@stylexjs/stylex";
-// import "./App.css";
+import Card from "./components/Card"
 
 const styles = stylex.create({
   base: {
@@ -29,7 +29,7 @@ const styles = stylex.create({
   topcontainer: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   columnwidth: {
     width: "650px",
@@ -49,8 +49,7 @@ const styles = stylex.create({
   psmallstyle: {
     margin: "10px",
   },
-  middlecontainer: {
-  },
+  middlecontainer: {},
   hrstyle: {
     backgroundColor: "#9dbdf2",
     height: "5px",
@@ -65,24 +64,9 @@ const styles = stylex.create({
   bottomcontainer: {
     display: "flex",
     height: "500px",
+    flexWrap: "wrap",
   },
-  bottom: {
-    flexGrow: 1,
-    margin: "10px",
-    backgroundColor: "lavender",
-  },
-  // moveright: {
-  //   animationName: moveright,
-  //   animationDuration: '1s',
-  //   animationIterationCount: 'infinite',
-  // },
 });
-
-
-// const moveright = stylex.keyframes({
-//   '0%': {left: '0px', top: '0px;'},
-//   '100%': {left: '100px', top: '0px;'},
-// });
 
 function App() {
   const [count, setCount] = useState(0);
@@ -90,7 +74,7 @@ function App() {
   return (
     <>
       <div {...stylex.props(styles.topbar)}>
-        <div class="moverightcss"  {...stylex.props(styles.top)}></div>
+        <div className="moverightcss" {...stylex.props(styles.top)}></div>
         <div {...stylex.props(styles.top, styles.topright)}></div>
       </div>
       <div {...stylex.props(styles.container)}>
@@ -142,24 +126,12 @@ function App() {
           <h1 {...stylex.props(styles.h1style)}>HEADER</h1>
         </div>
         <div {...stylex.props(styles.bottomcontainer)}>
-          <div {...stylex.props(styles.bottom)}></div>
-          <div {...stylex.props(styles.bottom)}></div>
-          <div {...stylex.props(styles.bottom)}></div>
-          <div {...stylex.props(styles.bottom)}></div>
+          <Card title="Web" />
+          <Card title="Script" />
+          <Card title="CSS" />
+          <Card title="Deploy" />
         </div>
       </div>
-      {/* <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
   );
 }
